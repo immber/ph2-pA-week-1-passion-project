@@ -1,5 +1,5 @@
 class Card < ActiveRecord::Base
-  belongs_to :card_in_hand
-  belongs_to :won_card
+  has_many :played_cards
+  has_many :players, :through => :played_cards
 
 end
