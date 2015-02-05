@@ -1,0 +1,18 @@
+<% if @white_cards == nil %>
+<p>"You haven't created any whtie cards yet"</p>
+
+<p></p>
+
+<% else %>
+<p>Here are your many, many white cards:</p>
+
+<% @white_cards.each do |card| %>
+<p><%= card %></p>
+<% end %>
+<% end %>
+
+<p><a href="/white_cards/new"><button id='new_white_card' type="button">Create New</button></a></p>
+
+
+
+
