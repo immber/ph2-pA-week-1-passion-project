@@ -1,13 +1,17 @@
-<% if @white_cards == nil %>
-<p>"You haven't created any whtie cards yet"</p>
 
+<%= erb :"white_cards/new_white_card" %>
+
+<% if @white_cards == nil %>
+<p>"You haven't created any white cards yet"</p>
 <p></p>
 
 <% else %>
-<p>Here are your many, many white cards:</p>
+<h3>Here are your many, many white cards:</h3>
+<h4>click on a card to edit it</h4>
 
 <% @white_cards.each do |card| %>
-<p><%= card %></p>
+<a href="/white_cards/<%= card.id %>/edit">
+<p><%= card.text %></a></p>
 <% end %>
 <% end %>
 

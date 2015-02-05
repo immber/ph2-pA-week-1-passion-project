@@ -1,1 +1,22 @@
 
+This is the edit a white card form!
+
+<p>Make changes to your white card:</p>
+<form action="/white_cards/<%= @card.id %>" method="post">
+  <input type="hidden" name="_method" value="put"/>
+  Card Text:<br>
+  <input type="text" name="card_text" value="<%= @card.text %>">
+  <br>
+  <br>
+  <input type="submit" value="Submit">
+  <br>
+  <br>
+</form>
+<br>
+<br>
+<br>
+<br>
+<form action="/white_cards/<%= @card.id %>" method="post" >
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
