@@ -4,11 +4,11 @@ Phase 2 Passion Project:
 
 Convert Phase 1 console app to fully functioning web app implementing:
 
-* Portfolio 1: Sinatra RESTful CRUD
-* Portfolio 2: Active Record
-* Portfolio 3: Authentication And Authorization
-* Portfolio 4: HTML and CSS
-* Portfolio 5: Validations and Errors
+1. Portfolio 1: Sinatra RESTful CRUD
+2. Portfolio 2: Active Record
+3. Portfolio 3: Authentication And Authorization
+4. Portfolio 4: HTML and CSS
+5. Portfolio 5: Validations and Errors
 
 MVP-
 - Index/landing page
