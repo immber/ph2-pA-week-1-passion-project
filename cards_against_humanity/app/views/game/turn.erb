@@ -1,0 +1,14 @@
+a turn is happening now!!!
+
+<ul>
+<% @player1_hand.each do |card| %>
+<li> <a href="/play_white_card/<%=card.id%>"><%= card.text %></a></li>
+<% end %>
+</ul>
+
+now here is a black card :
+
+<%= @black_card.text %>
+
+This is the shiiiiiiittttt!!!!
+
