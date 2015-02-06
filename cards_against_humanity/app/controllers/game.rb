@@ -2,40 +2,48 @@ get '/start_game' do
   if !logged_in?
     erb :'/please_sign_in'
   else
-
-  start_game
-  @players = current_players
-
-  draw_start_hands
-
-  erb :'/game/starting'
-
+    start_game
+    @players = current_players
+    draw_start_hands
+    erb :'/game/starting'
   end
 
 end
 
 get '/start_turn' do
-  # @player1_hand = Player.
+  @players = current_players
+  @hand = @players[0].cards_in_hand
   @black_card = draw_black_card
-
+  save_black_card(@black_card)
+  erb :'/game/turn'
 end
 
 get '/play_white_card/:id' do
   @players_card = Card.find(params[:id])
-  # other players play white cards
-  # read white cards played
-  # redirect to /winning_black_card
+  @cards_played = virtual_players_go(@players_card)
+  save_cards_played(@cards_played)
+  @black_card = black_card_in_play
+  erb :'game/played_cards'
+
 end
 
-# get /winning_black_card do
-#   show winner,
-#   increment points
-#set played on cards to true
-#   if game_over
-#       redirect '/game over'
-#       reset
-#     else
-#       redirect '/this turn'
+get '/show_winner' do
+  @winning_card = pick_winning_card
+  @turn_winner = PlayedCard.find_by(card_id: @winning_card.id, game_id: current_game.id).player
+  update_points(@turn_winner)
+  # discard_cards
+  if game_over?
+    erb :'game/game over'
 
-# end
+  else
+    erb :'game/show_winner'
+  end
+end
+
+
+#when do you call reset??
+
+
+
+
 

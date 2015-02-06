@@ -1,14 +1,20 @@
 a turn is happening now!!!
 
 <ul>
-<% @player1_hand.each do |card| %>
+<% @hand.each do |card| %>
 <li> <a href="/play_white_card/<%=card.id%>"><%= card.text %></a></li>
 <% end %>
 </ul>
 
 now here is a black card :
 
-<%= @black_card.text %>
+<p> <%= @black_card.text %></p>
 
-This is the shiiiiiiittttt!!!!
 
+<p> This is the shiiiiiiittttt!!!!</p>
+<p>pick a card to play it</p>
+
+<p>while were at it let's show the players current points</p>
+<% @players.each do |player|%>
+<p><%= "#{player.name} has #{player.points} black cards so far!" %></p>
+<% end %>

@@ -7,21 +7,26 @@ end
 def start_game
   #make the user player 1
   player1 = Player.create(name: current_user.username, points: 0)
-  #make a game to hold the players
+
   Game.create(user_id: current_user.id, users_current_player: player1.id, player_2: create_player.id, player_3: create_player.id, player_4: create_player.id)
+end
+
+def current_game
+  Game.find_by(user_id: current_user.id)
+end
+
+def add_card_to_player(player,card)
+  PlayedCard.create(player_id: player.id, card_id: card.id, game_id: current_game.id)
 end
 
 
 def draw_start_hands
   current_players.each do |player|
     7.times do
-      player.draw_white_card
+      card = player.draw_white_card
+      add_card_to_player(player,card)
     end
   end
-end
-
-def current_game
-  Game.find_by(user_id: current_user.id)
 end
 
 
@@ -41,7 +46,7 @@ def reset
 end
 
 
-
+#copied from console verison in phase 1, pseudocode...
 # def turn
 #   read_black_card
 #   cards_played = played_cards

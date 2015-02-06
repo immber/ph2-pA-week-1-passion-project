@@ -3,7 +3,8 @@ class CreatePlayedCards < ActiveRecord::Migration
     create_table :played_cards do |t|
       t.integer :card_id
       t.integer :player_id
-      t.boolean :played
+      t.string :played
+      t.integer :game_id
 
       t.timestamps
     end
