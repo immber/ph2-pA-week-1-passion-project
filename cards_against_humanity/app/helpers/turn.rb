@@ -53,6 +53,14 @@ def discard_cards
 
 end
 
+def each_player_draw
+  current_players.each do |player|
+    card = player.draw_white_card
+    add_card_to_player(player,card)
+  end
+end
+
+
 def game_over?
   current_players.each do |player|
     return true if player.points == 5

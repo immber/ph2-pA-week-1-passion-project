@@ -34,6 +34,7 @@ get '/show_winner' do
   @turn_winner = PlayedCard.find_by(card_id: @winning_card.id, game_id: current_game.id).player
   update_points(@turn_winner)
   discard_cards
+  each_player_draw
   if game_over?
     erb :'game/game_over'
   else
