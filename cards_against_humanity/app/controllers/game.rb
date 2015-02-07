@@ -10,7 +10,6 @@ get '/start_game' do
 
 end
 
-
 get '/start_turn' do
   @players = current_players
   @hand = @players[0].cards_in_hand
@@ -27,8 +26,6 @@ get '/play_white_card/:id' do
   erb :'game/played_cards'
 
 end
-
-
 
 get '/show_winner' do
   puts 'starting show winner'
