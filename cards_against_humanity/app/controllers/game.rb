@@ -10,15 +10,6 @@ get '/start_game' do
 
 end
 
-# get '/asdasd' do
-#   a = [1,2,3]
-#   b = false
-#   @a = a
-#   @b = b
-#   a = []
-#   b = true
-#   erb :show
-# end
 
 get '/start_turn' do
   @players = current_players
@@ -40,21 +31,19 @@ end
 
 
 get '/show_winner' do
-  debugger
+  puts 'starting show winner'
   @winning_card = pick_winning_card
+  @black_card = black_card_in_play
   @turn_winner = PlayedCard.find_by(card_id: @winning_card.id, game_id: current_game.id).player
   update_points(@turn_winner)
-  puts "now I'm discarding"
   discard_cards
   if game_over?
-    erb :'game/game over'
+    erb :'game/game_over'
   else
     erb :'game/show_winner'
   end
 end
 
-
-#when do you call reset??
 
 
 

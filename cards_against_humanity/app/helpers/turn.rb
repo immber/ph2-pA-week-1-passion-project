@@ -45,14 +45,11 @@ end
 
 def discard_cards
 
-  PlayedCard.find_by(card_id: black_card_in_play.id, game_id: current_game.id).update_attributes(played: "true") if black_card_in_play != nil
+  PlayedCard.find_by(card_id: black_card_in_play.id, game_id: current_game.id).update_attributes(played: "true")
 
-  PlayedCard.where(played: "current",  game_id: current_game.id).update_all(played: "true")
-  # if !white_cards_in_play.empty?
-  #   white_cards_in_play.each do |card|
-  #     PlayedCard.find_by(card_id: card.id, game_id: current_game.id).update_attributes(played: "true")
-  #   end
-  # end
+  PlayedCard.where(played: "current", game_id: current_game.id).each do |played_card|
+    played_card.update_attributes(played: "true")
+  end
 
 end
 
