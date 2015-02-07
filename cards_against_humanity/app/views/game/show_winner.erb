@@ -1,10 +1,12 @@
-<!-- gets @winning_Card
-gets @turn_winner -->
 
-This winner of this round was "" with ""
+
+This round goes to <%= black_card_in_play.text %> <%= @winning_card.text %>
+
+congratulations <%= @turn_winner.name %> you won a black card!
 
 yay that was funsies
 
 want to keep going
 
-button to /start_turn
+<a href="/start_turn">
+  <button>Keep Going</button></a>

@@ -10,6 +10,16 @@ get '/start_game' do
 
 end
 
+# get '/asdasd' do
+#   a = [1,2,3]
+#   b = false
+#   @a = a
+#   @b = b
+#   a = []
+#   b = true
+#   erb :show
+# end
+
 get '/start_turn' do
   @players = current_players
   @hand = @players[0].cards_in_hand
@@ -27,14 +37,17 @@ get '/play_white_card/:id' do
 
 end
 
+
+
 get '/show_winner' do
+  debugger
   @winning_card = pick_winning_card
   @turn_winner = PlayedCard.find_by(card_id: @winning_card.id, game_id: current_game.id).player
   update_points(@turn_winner)
-  # discard_cards
+  puts "now I'm discarding"
+  discard_cards
   if game_over?
     erb :'game/game over'
-
   else
     erb :'game/show_winner'
   end

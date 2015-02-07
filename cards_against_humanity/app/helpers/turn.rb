@@ -5,11 +5,11 @@ def draw_black_card
 end
 
 def save_black_card(black_card)
-  PlayedCard.create(card_id: black_card.id, player_id: current_players[0].id, played: "black")
+  PlayedCard.create(card_id: black_card.id, player_id: current_players[0].id, played: "black", game_id: current_game.id)
 end
 
 def black_card_in_play
-  PlayedCard.find_by(played: "black", player_id: current_players[0].id).card
+  PlayedCard.find_by(played: "black", game_id: current_game.id).card
 end
 
 def virtual_players_go(users_card)
@@ -43,6 +43,18 @@ def update_points(winner)
   winner.save
 end
 
+def discard_cards
+
+  PlayedCard.find_by(card_id: black_card_in_play.id, game_id: current_game.id).update_attributes(played: "true") if black_card_in_play != nil
+
+  PlayedCard.where(played: "current",  game_id: current_game.id).update_all(played: "true")
+  # if !white_cards_in_play.empty?
+  #   white_cards_in_play.each do |card|
+  #     PlayedCard.find_by(card_id: card.id, game_id: current_game.id).update_attributes(played: "true")
+  #   end
+  # end
+
+end
 
 def game_over?
   current_players.each do |player|
