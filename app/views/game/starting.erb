@@ -1,0 +1,16 @@
+<div class="game">
+  <h4>Starting a new game for you...</h4>
+
+  <p>You are <strong>Player 1</strong>!</p>
+  <p>Since we know you don't have any real friends to play with we will go ahead and create 3 other virtual players for you to play with.</p>
+  <p>Don't get too attached to your new virtual friends, they will only exist for as long as this game does.</p>
+  <p>
+    <ul><% @players.each_with_index do |player, index| %>
+      <li><strong>Player <%= index + 1%>- </strong><%= player.name %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>Each player starts out with their own hand of 7 white cards.</p>
+  <p><a href="/start_turn"><button> Play</button></a>
+  </p>
+</div>

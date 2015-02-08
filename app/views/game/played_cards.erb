@@ -1,0 +1,15 @@
+<div class="game">
+  <div class="black_card">
+    <%= @black_card.text %>
+  </div>
+  <h4>... here are the white cards everyone played...</h4>
+  <div>
+    <% @cards_played.shuffle! %>
+    <% @cards_played.each do |card| %>
+    <%= erb :'game/white_card', :locals => { :card => card } %>
+    <% end %>
+  </div>
+  <p>You played: <%= @players_card.text %></p>
+  <a href="/show_winner"><button>See the winner</button></a>
+</div>
+

@@ -1,0 +1,10 @@
+<div class="game">
+  <h4>This round goes to: </h4>
+  <div class="black_card">
+    <%= @black_card.text %>
+  </div>
+  <%= erb :'game/white_card', :locals => { :card => @winning_card } %>
+  <p>Congratulations <%= @turn_winner.name %>. You won a black card!</p>
+  <p>YAY! That was funsies! Want to keep going?
+    <a href="/start_turn"><button>Keep Going</button></a>
+  </p></div>

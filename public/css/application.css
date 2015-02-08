@@ -1,0 +1,104 @@
+body {
+  font-family: helvetica;
+}
+
+#header {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+span {
+  text-decoration: line-through;
+  /* text-decoration: blink; */
+}
+
+#footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#sign-in {
+  margin-bottom: 5px;
+}
+
+h3 {
+  text-align: center;
+}
+
+#register {
+  background-color: black;
+  color: white;
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  button: white;
+  
+}
+
+#edit_card {
+  border: solid;
+  border-radius: 15px;
+  border: solid;
+  border-radius: 15px;
+  height: 200px;
+  width: 125px;
+  padding: 1.5%;
+}
+
+#welcome {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: black;
+  color: white;
+  padding: 10%;
+
+}
+
+button {
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.game {
+  margin-left: 20%;
+  margin-right: 20%;
+  border: solid;
+  border-radius: 5px;
+
+  padding: 3%;
+}
+
+.black_card {
+  background-color: black;
+  display:  inline-flex;
+  color: white;
+  border: solid black;
+  border-radius: 15px;
+  height: 200px;
+  width: 125px;
+  padding: 1.5%;
+}
+
+.white_card:hover {
+  transform: translateY(-10px);
+}
+
+.white_card {
+  border: solid;
+  border-radius: 15px;
+  height: 200px;
+  width: 125px;
+  padding: 1.5%;
+  display: inline-flex;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.turn {
+  margin-left: 10%;
+  margin-right: 10%;
+  border: solid;
+  border-radius: 5px;
+
+  padding: 2%;
+}
