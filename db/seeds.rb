@@ -15,4 +15,4 @@ end
 populate_default_cards
 
 #create one user
-  User.create(username:"jessie", password_hash: 'jessie')
+  # User.create(username:"jessie", password_hash: 'jessie')

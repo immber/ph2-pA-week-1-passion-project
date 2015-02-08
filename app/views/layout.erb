@@ -27,6 +27,8 @@
       <input type="submit" name="register" value="register">
     </form>
     <% else %>
+    <a href="/"><button id="home">Home</button></a>
+
     <a href="/sessions/<%= session[:user_id] %>"><button id="sign out">Sign Out</button></a>
     <% end %>
   </div>
