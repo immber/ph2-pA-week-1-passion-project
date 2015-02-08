@@ -3,7 +3,7 @@ get '/white_cards' do
   if !logged_in?
     erb :'/please_sign_in'
   else
-    @white_cards = Card.where(color: "white", created_by: current_user.id)
+    @white_cards = users_white_cards
     erb :"/white_cards/show_white_cards"
   end
 end

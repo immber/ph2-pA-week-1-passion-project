@@ -35,6 +35,15 @@ h3 {
   
 }
 
+#edit_card {
+  border: solid;
+  border-radius: 15px;
+  border: solid;
+  border-radius: 15px;
+  height: 200px;
+  width: 125px;
+  padding: 1.5%;
+}
 
 #welcome {
   margin-left: 20%;
