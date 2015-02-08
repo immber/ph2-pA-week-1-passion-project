@@ -1,20 +1,23 @@
-a turn is happening now!!!
+<div class="turn">
+  <h4>A turn is happening now!!!</h4>
+  <p>Here is your black card. Fill in the blank or answer the question with one of your white cards in your hand...</p>
+  <div class="black_card">
+    <%= @black_card.text %>
+  </div>
+  <div class="hand">
+    <h4>Here is your hand:</h4>
+    <% @hand.each do |card| %>
+    <a href="/play_white_card/<%=card.id%>">
+      <%= erb :'game/white_card', :locals => { :card => card } %>
+      </a>
+    <% end %>
+  <div class="scores">
+    <h4>while were at it let's show the player's scores so far:</h4>
+    <ul>
+    <% @players.each do |player|%>
+      <p><li><strong><%= player.name %></strong><%= "  has #{player.points} black cards!" %></li></p>
+    <% end %>
+  </ul>
+  </div>
+</div>
 
-<ul>
-<% @hand.each do |card| %>
-<li> <a href="/play_white_card/<%=card.id%>"><%= card.text %></a></li>
-<% end %>
-</ul>
-
-now here is a black card :
-
-<p> <%= @black_card.text %></p>
-
-
-<p> This is the shiiiiiiittttt!!!!</p>
-<p>pick a card to play it</p>
-
-<p>while were at it let's show the players current points</p>
-<% @players.each do |player|%>
-<p><%= "#{player.name} has #{player.points} black cards so far!" %></p>
-<% end %>

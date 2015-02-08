@@ -1,12 +1,19 @@
 
 get '/white_cards' do
-  user_id = 1
-  @white_cards = Card.where(color: "white", created_by: 1)
-  erb :"/white_cards/show_white_cards"
+  if !logged_in?
+    erb :'/please_sign_in'
+  else
+    @white_cards = Card.where(color: "white", created_by: current_user.id)
+    erb :"/white_cards/show_white_cards"
+  end
 end
 
 get '/white_cards/new' do
-  erb :"/white_cards/new_white_card"
+  if logged_in?
+    erb :"/white_cards/new_white_card"
+  else
+    erb :'/please_sign_in'
+  end
 end
 
 post '/white_cards' do

@@ -1,21 +1,20 @@
+<div class="game">
+  <%= erb :"white_cards/new_white_card" %>
 
-<%= erb :"white_cards/new_white_card" %>
-
-<% if @white_cards == nil %>
-<p>"You haven't created any white cards yet"</p>
-<p></p>
-
-<% else %>
-<h3>Here are your many, many white cards:</h3>
-<h4>click on a card to edit it</h4>
-
-<% @white_cards.each do |card| %>
-<a href="/white_cards/<%= card.id %>/edit">
+  <% if @white_cards == nil %>
+    <p>"You haven't created any white cards yet"</p>
+  <% else %>
+    <h3>Here are your many, many white cards:</h3>
+    <h4>click on a card to edit it</h4>
+    <% @white_cards.each do |card| %>
+    <a href="/white_cards/<%= card.id %>/edit">
 <p><%= card.text %></a></p>
 <% end %>
 <% end %>
 
 <p><a href="/white_cards/new"><button id='new_white_card' type="button">Create New</button></a></p>
+</a>
+</div>
 
 
 
