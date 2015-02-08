@@ -1,4 +1,4 @@
-require 'Faker'
+require 'faker'
 
 def create_player
   Player.create(name: Faker::Name.name, points: 0)
