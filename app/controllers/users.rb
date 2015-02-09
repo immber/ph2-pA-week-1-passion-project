@@ -2,12 +2,13 @@ get '/sessions/new' do
   erb :please_sign_in
 end
 
+#when you click sign-in
 post '/sessions' do
   if params[:sign_in]
-    if session_authenticate(params[:username],params[:password])
+    if login
       redirect '/'
     else
-      @message = "you fucked up, try again"
+      @message = {:mismatch => "That didn't work, try again."}
       erb :please_sign_in
     end
   elsif params[:register]
@@ -26,6 +27,11 @@ get '/users' do
 end
 
 post '/users' do
-  user = User.create(username: params[:username], password_hash: params[:password], email: params[:email])
-  redirect '/sessions/new'
+  if create_user
+    redirect '/sessions/new'
+  else
+    @message = @user.errors.messages
+    erb :please_sign_in
+  end
+
 end

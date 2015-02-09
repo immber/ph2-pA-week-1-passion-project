@@ -1,19 +1,23 @@
+def create_user
+  @user = User.new(username: params[:username], email: params[:email])
+  @user.password = params[:password]
+  @user.save
+end
+
 def logged_in?
-   !session[:user_id].blank?
+  !session[:user_id].blank?
 
 end
 
-def session_authenticate(username,password)
+def login
   begin
-    user = User.find_by(username: username)
-    session[:user_id] = user.id if user.password_hash == password
+    @user = User.find_by(username: params[:username])
+    session[:user_id] = @user.id if @user.password == params[:password]
     return true
   rescue
     return false
   end
 end
-
-
 
 def current_user
   User.find(session[:user_id])
