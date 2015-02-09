@@ -8,7 +8,7 @@ post '/sessions' do
     if login
       redirect '/'
     else
-      @message = "That didn't work, try again."
+      @message = {:mismatch => "That didn't work, try again."}
       erb :please_sign_in
     end
   elsif params[:register]
@@ -27,6 +27,11 @@ get '/users' do
 end
 
 post '/users' do
-  create_user
-  redirect '/sessions/new'
+  if create_user
+    redirect '/sessions/new'
+  else
+    @message = @user.errors.messages
+    erb :please_sign_in
+  end
+
 end

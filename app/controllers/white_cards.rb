@@ -17,7 +17,7 @@ get '/white_cards/new' do
 end
 
 post '/white_cards' do
-  Card.create(color: "white", text: params[:card_text], created_by: 1)
+  Card.create(color: "white", text: params[:card_text], created_by: current_user.id)
   redirect '/white_cards'
 end
 
