@@ -8,11 +8,22 @@ def start_game
   #make the user player 1
   player1 = Player.create(name: current_user.username, points: 0)
 
+  if current_game
+    destroy_game(current_game.id)
+  end
+
   Game.create(user_id: current_user.id, users_current_player: player1.id, player_2: create_player.id, player_3: create_player.id, player_4: create_player.id)
 end
 
 def current_game
   Game.find_by(user_id: current_user.id)
+end
+
+def destroy_game(id)
+  Game.find(id).played_cards.each do |played_card|
+    played_card.destroy
+  end
+  Game.destroy(id)
 end
 
 def add_card_to_player(player,card)

@@ -13,7 +13,7 @@ class Player < ActiveRecord::Base
   end
 
   def cards_in_hand
-    all_cards = self.played_cards.where(played: nil).map do |played_card|
+    all_cards = self.played_cards.where(played: nil, ).map do |played_card|
       Card.find(played_card.card_id)
     end
   end
