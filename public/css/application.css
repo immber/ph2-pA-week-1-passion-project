@@ -92,6 +92,8 @@ button {
   display: inline-flex;
   margin-bottom: 20px;
   margin-right: 10px;
+  box-shadow: 3px 3px 8px;
+  transition: 0.6s;
 }
 
 .turn {
